@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
-// Importing routes from the routes folder
+const resourcePrefix = '/api/v1'
 
+// Importing routes from the routes folder
+const buildingRoutes = require('./routes/buildingRoutes');
 
 // Creating a Express application
 const app = express();
@@ -22,7 +24,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Setting the routes to the app as middlewares
-
+app.use(`${resourcePrefix}/buildings`, buildingRoutes);
 
 // Setting static webpage
 app.use(express.static('./client'));
