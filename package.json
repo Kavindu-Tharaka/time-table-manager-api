@@ -1,0 +1,37 @@
+{
+  "name": "time-table-generator-api",
+  "version": "1.0.0",
+  "description": "SPM Timetable Generator",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+		"nodemon": "nodemon server.js",
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThamalDilanka/time-table-generator-api.git"
+  },
+  "author": "TeamAlpha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThamalDilanka/time-table-generator-api/issues"
+  },
+  "homepage": "https://github.com/ThamalDilanka/time-table-generator-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.0",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.27",
+    "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  }
+}
