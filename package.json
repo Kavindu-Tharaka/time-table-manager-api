@@ -4,7 +4,7 @@
   "description": "SPM Timetable Manager",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "nodemon": "nodemon server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
   },
