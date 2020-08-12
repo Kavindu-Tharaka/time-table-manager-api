@@ -19,7 +19,6 @@ exports.createYearSemester = async (req, res) => {
 };
 
 exports.getAllYearSemesters = async (req, res) => {
-    console.log(req.query.yearSemester)
     try {
         const query = YearSemester.find(req.query);
 

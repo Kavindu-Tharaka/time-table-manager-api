@@ -15,6 +15,7 @@ const groupnumberRoutes = require('./routes/groupnumberRoutes');
 const subgroupnumberRoutes = require('./routes/subgroupnumberRoutes');
 const groupidRoutes = require('./routes/groupidRoutes');
 const subgroupidRoutes = require('./routes/subgroupidRoutes');
+const workingDaysRoutes = require('./routes/workingDaysRoute');
 
 // Creating a Express application
 const app = express();
@@ -39,6 +40,7 @@ app.use(`${resourcePrefix}/groupnumbers`, groupnumberRoutes);
 app.use(`${resourcePrefix}/subgroupnumbers`, subgroupnumberRoutes);
 app.use(`${resourcePrefix}/groupids`, groupidRoutes);
 app.use(`${resourcePrefix}/subgroupids`, subgroupidRoutes);
+app.use(`${resourcePrefix}/workingDays`, workingDaysRoutes);
 
 // Setting static webpage
 app.use(express.static('./client'));

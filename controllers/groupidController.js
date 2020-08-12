@@ -1,6 +1,5 @@
 const GroupID = require('../models/GroupID');
 
-//creating document in related collention
 exports.createGroupID = async (req, res) => {
     try {
         const newGroupID = await GroupID.create(req.body);
