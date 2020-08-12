@@ -4,6 +4,10 @@ const yearsemesterController = require('../controllers/yearsemesterController');
 const router = express.Router();
 
 router
+	.route('/yearSemesterByName')
+	.get(yearsemesterController.getYearSemesterByName);
+	
+router
 	.route('/')
 	.post(yearsemesterController.createYearSemester)
 	.get(yearsemesterController.getAllYearSemesters);

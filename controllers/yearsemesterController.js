@@ -19,6 +19,7 @@ exports.createYearSemester = async (req, res) => {
 };
 
 exports.getAllYearSemesters = async (req, res) => {
+    console.log(req.query.yearSemester)
     try {
         const query = YearSemester.find(req.query);
 
@@ -86,6 +87,24 @@ exports.deleteYearSemester = async (req, res) => {
         res.status(204).json({
             status: 'success',
             data: null,
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'failed',
+            message: err.message,
+        });
+    }
+};
+
+exports.getYearSemesterByName = async (req, res) => {
+    try {
+        const yearsemester = await YearSemester.find({yearsemestername : req.query.yearSemester});
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                yearsemester,
+            },
         });
     } catch (err) {
         res.status(400).json({
