@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const workingDaysSchema = mongoose.Schema({
-    workingDayType : {
+    dayType : {
         type: String,
         required: true
     },
@@ -9,11 +9,23 @@ const workingDaysSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    workingDay:{
-        type : [Object],
+    dayOfWork:{
+        type : String,
         required: true
     },
     timeSlot : {
+        type : String
+    },
+    fromTime : {
+        type : String
+    },
+    toTime: {
+        type : String
+    },
+    workingHours : {
+        type : String
+    },
+    workingMins : {
         type : String
     }
 
