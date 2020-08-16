@@ -113,3 +113,13 @@ exports.updateWorkingDay = async (req, res) => {
     console.log(error);
   }
 };
+
+
+exports.getDayTypeCount = async (req, res) => {
+  try {
+    const count = await WorkingDays.find({dayType : req.params.type}).count();
+    res.json(count)
+  } catch (error) {
+    res.json(count)
+  }
+}
