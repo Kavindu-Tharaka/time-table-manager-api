@@ -1,14 +1,14 @@
-const Building = require('../models/Building');
+const Room = require('../models/Room');
 
-// Creating a new building in the database
-exports.createBuilding = async (req, res) => {
+// Creating a new room in the database
+exports.createRoom = async (req, res) => {
 	try {
-		const newBuilding = await Building.create(req.body);
+		const newRoom = await Room.create(req.body);
 
 		res.status(201).json({
 			status: 'success',
 			data: {
-				building: newBuilding
+				room: newRoom
 			}
 		});
 	} catch (err) {
@@ -19,21 +19,21 @@ exports.createBuilding = async (req, res) => {
 	}
 };
 
-// Read all the document in building collection
-exports.getAllBuildings = async (req, res) => {
+// Read all the document in room collection
+exports.getAllRooms = async (req, res) => {
 	try {
 		// Build the query
-		const query = Building.find(req.query);
+		const query = Room.find(req.query);
 
 		// Execute the query
-		const buildings = await query;
+		const rooms = await query;
 
 		// Send response
 		res.status(200).json({
 			status: 'success',
-			results: buildings.length,
+			results: rooms.length,
 			data: {
-				buildings
+				rooms
 			}
 		});
 	} catch (err) {
@@ -46,16 +46,16 @@ exports.getAllBuildings = async (req, res) => {
 
 /**
  * Read a specific document by id that passed as query parameter
- * in building collection
+ * in room collection
  */
-exports.getBuilding = async (req, res) => {
+exports.getRoom = async (req, res) => {
 	try {
-		const building = await Building.findById(req.params.id);
+		const room = await Room.findById(req.params.id);
 
 		res.status(200).json({
 			status: 'success',
 			data: {
-				building
+				room
 			}
 		});
 	} catch (err) {
@@ -67,9 +67,9 @@ exports.getBuilding = async (req, res) => {
 };
 
 // Update a document by given id. This only for patch method
-exports.updateBuilding = async (req, res) => {
+exports.updateRoom = async (req, res) => {
 	try {
-		const building = await Building.findByIdAndUpdate(
+		const room = await Room.findByIdAndUpdate(
 			req.params.id,
 			req.body,
 			{ new: true, runValidators: true }
@@ -78,7 +78,7 @@ exports.updateBuilding = async (req, res) => {
 		res.status(200).json({
 			status: 'success',
 			data: {
-				building
+				room
 			}
 		});
 	} catch (err) {
@@ -90,9 +90,9 @@ exports.updateBuilding = async (req, res) => {
 };
 
 // Delete a document by id
-exports.deleteBuilding = async (req, res) => {
+exports.deleteRoom = async (req, res) => {
 	try {
-		await Building.findByIdAndDelete(req.params.id);
+		await Room.findByIdAndDelete(req.params.id);
 
 		res.status(204).json({
 			status: 'success',
