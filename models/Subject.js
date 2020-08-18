@@ -43,5 +43,5 @@ const subjectSchema = new mongoose.Schema({
   }
 });
 
-const Subject = mongoose.model("tag", subjectSchema);
+const Subject = mongoose.model("subject", subjectSchema);
 module.exports = Subject;
