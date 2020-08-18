@@ -10,6 +10,7 @@ const resourcePrefix = '/api/v1';
 const buildingRoutes = require('./routes/buildingRoutes');
 const roomRoutes = require('./routes/roomRoutes');
 const workingDaysRoutes = require('./routes/workingDaysRoute');
+const lecturerRoutes = require('./routes/lecturerRoute');
 
 // Creating a Express application
 const app = express();
