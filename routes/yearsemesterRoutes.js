@@ -4,18 +4,14 @@ const yearsemesterController = require('../controllers/yearsemesterController');
 const router = express.Router();
 
 router
-	.route('/yearSemesterByName')
-	.get(yearsemesterController.getYearSemesterByName);
-	
-router
-	.route('/')
-	.post(yearsemesterController.createYearSemester)
-	.get(yearsemesterController.getAllYearSemesters);
+    .route('/')
+    .post(yearsemesterController.createYearSemester)
+    .get(yearsemesterController.getAllYearSemesters);
 
 router
-	.route('/:id')
-	.get(yearsemesterController.getYearSemester)
-	.patch(yearsemesterController.updateYearSemester)
-	.delete(yearsemesterController.deleteYearSemester);
+    .route('/:id')
+    .get(yearsemesterController.getYearSemester)
+    .patch(yearsemesterController.updateYearSemester)
+    .delete(yearsemesterController.deleteYearSemester);
 
 module.exports = router;

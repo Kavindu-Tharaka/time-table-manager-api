@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
-const resourcePrefix = '/api/v1'
+const resourcePrefix = '/api/v1';
 
 // Importing routes from the routes folder
 const buildingRoutes = require('./routes/buildingRoutes');
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 // Logging all the requests to the console in development environment
 if (process.env.NODE_ENV === 'development') {
-	app.use(morgan('dev'));
+    app.use(morgan('dev'));
 }
 
 // Setting the routes to the app as middlewares
@@ -43,7 +43,7 @@ app.use(`${resourcePrefix}/subgroupids`, subgroupidRoutes);
 // Setting static webpage
 app.use(express.static('./client'));
 app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
 });
 
 module.exports = app;
