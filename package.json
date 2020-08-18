@@ -1,10 +1,10 @@
 {
-  "name": "time-table-generator-api",
+  "name": "time-table-manager-api",
   "version": "1.0.0",
-  "description": "SPM Timetable Generator",
+  "description": "SPM Timetable Manager",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "nodemon": "nodemon server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
   },
@@ -33,5 +33,6 @@
   },
   "engines": {
     "node": ">=10.0.0"
-  }
+  },
+  "keywords": []
 }
