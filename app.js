@@ -17,6 +17,7 @@ const groupidRoutes = require('./routes/groupidRoutes');
 const subgroupidRoutes = require('./routes/subgroupidRoutes');
 const roomRoutes = require('./routes/roomRoutes');
 const workingDaysRoutes = require('./routes/workingDaysRoute');
+const lecturerRoutes = require('./routes/lecturerRoute');
 
 // Creating a Express application
 const app = express();
