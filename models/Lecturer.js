@@ -43,3 +43,4 @@ const lecturerSchema = new mongoose.Schema({
 });
 
 const Lecturer = mongoose.model("lecturers", lecturerSchema );
+module.exports = Lecturer;
