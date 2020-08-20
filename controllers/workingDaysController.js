@@ -120,6 +120,6 @@ exports.getDayTypeCount = async (req, res) => {
     const count = await WorkingDays.find({dayType : req.params.type}).count();
     res.json(count)
   } catch (error) {
-    res.json(count)
+    res.json(error)
   }
 }
