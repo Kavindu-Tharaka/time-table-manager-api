@@ -4,39 +4,42 @@ const lecturerSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: [true, "Offered Year is Mandatory!"],
+    required: [true, "Name is Mandatory!"],
   },
   employeeId: {
     type: Number,
     trim: true,
-    required: [true, "Offered Semester is Mandatory!"],
+    required: [true, "EmpId  is Mandatory!"],
   },
   faculty: {
     type: String,
     trim: true,
-    required: [true, "Subject Name is Mandatory!"],
+    required: [true, "Faculty Name is Mandatory!"]
   },
   department: {
     type: String,
     trim: true,
-    required: [true, "Subject Code is Mandatory!"],
+    required: [true, "Department Code is Mandatory!"]
   },
   center: {
     type: String,
     trim: true,
-    required: [true, "Num Of Lec Hrs are Mandatory!"],
+    required: [true, "Center Mandatory!"]
   },
   building: {
     type: String,
     trim: true,
-    required: [true, "Num Of Tutorial Hrs are Mandatory!"],
+    required: [true, "Building is Mandatory!"]
   },
   level: {
-    type: Number,
+    type: String,
     trim: true,
-    required: [true, "Num Of Lab Hrs ares Mandatory!"],
+    required: [true, "Level is Mandatory!"],
+  },
+  rankVal: {
+    type: String,
+    trim: true
   }
 });
 
 const Lecturer = mongoose.model("lecturers", lecturerSchema );
-module.exports = Lecturer;
