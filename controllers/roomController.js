@@ -8,13 +8,13 @@ exports.createRoom = async (req, res) => {
 		res.status(201).json({
 			status: 'success',
 			data: {
-				room: newRoom
-			}
+				room: newRoom,
+			},
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -22,24 +22,29 @@ exports.createRoom = async (req, res) => {
 // Read all the document in room collection
 exports.getAllRooms = async (req, res) => {
 	try {
-		// Build the query
-		const query = Room.find(req.query);
-
-		// Execute the query
-		const rooms = await query;
-
-		// Send response
-		res.status(200).json({
-			status: 'success',
-			results: rooms.length,
-			data: {
-				rooms
-			}
+		Room.aggregate([
+			{
+				$lookup: {
+					from: 'buildings',
+					localField: 'building',
+					foreignField: '_id',
+					as: 'buildingObj',
+				},
+			},
+		]).exec((err, rooms) => {
+			// Send response
+			res.status(200).json({
+				status: 'success',
+				results: rooms.length,
+				data: {
+					rooms,
+				},
+			});
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -55,13 +60,13 @@ exports.getRoom = async (req, res) => {
 		res.status(200).json({
 			status: 'success',
 			data: {
-				room
-			}
+				room,
+			},
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -69,22 +74,21 @@ exports.getRoom = async (req, res) => {
 // Update a document by given id. This only for patch method
 exports.updateRoom = async (req, res) => {
 	try {
-		const room = await Room.findByIdAndUpdate(
-			req.params.id,
-			req.body,
-			{ new: true, runValidators: true }
-		);
+		const room = await Room.findByIdAndUpdate(req.params.id, req.body, {
+			new: true,
+			runValidators: true,
+		});
 
 		res.status(200).json({
 			status: 'success',
 			data: {
-				room
-			}
+				room,
+			},
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -96,12 +100,12 @@ exports.deleteRoom = async (req, res) => {
 
 		res.status(204).json({
 			status: 'success',
-			data: null
+			data: null,
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
