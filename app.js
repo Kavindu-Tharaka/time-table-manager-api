@@ -20,6 +20,10 @@ const workingDaysRoutes = require('./routes/workingDaysRoute');
 const lecturerRoutes = require('./routes/lecturerRoute');
 const subjectRoutes = require('./routes/subjectRoutes');
 
+const constraintslecturerRoutes = require('./routes/constraintslecturerRoutes');
+const constraintsgroupRoutes = require('./routes/constraintsgroupRoutes');
+const constraintssubgroupRoutes = require('./routes/constraintssubgroupRoutes');
+
 // Creating a Express application
 const app = express();
 
@@ -47,6 +51,10 @@ app.use(`${resourcePrefix}/rooms`, roomRoutes);
 app.use(`${resourcePrefix}/workingDays`, workingDaysRoutes);
 app.use(`${resourcePrefix}/lecturers`,lecturerRoutes);
 app.use(`${resourcePrefix}/subjects`,subjectRoutes);
+
+app.use(`${resourcePrefix}/constraintslecturers`,constraintslecturerRoutes);
+app.use(`${resourcePrefix}/constraintsgroups`,constraintsgroupRoutes);
+app.use(`${resourcePrefix}/constraintssubgroups`,constraintssubgroupRoutes);
 
 // Setting static webpage
 app.use(express.static('./client'));
