@@ -1,4 +1,5 @@
 const Building = require('../models/Building');
+const Room = require('../models/Room');
 
 // Creating a new building in the database
 exports.createBuilding = async (req, res) => {
@@ -8,13 +9,13 @@ exports.createBuilding = async (req, res) => {
 		res.status(201).json({
 			status: 'success',
 			data: {
-				building: newBuilding
-			}
+				building: newBuilding,
+			},
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -33,13 +34,13 @@ exports.getAllBuildings = async (req, res) => {
 			status: 'success',
 			results: buildings.length,
 			data: {
-				buildings
-			}
+				buildings,
+			},
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -55,13 +56,13 @@ exports.getBuilding = async (req, res) => {
 		res.status(200).json({
 			status: 'success',
 			data: {
-				building
-			}
+				building,
+			},
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -78,13 +79,13 @@ exports.updateBuilding = async (req, res) => {
 		res.status(200).json({
 			status: 'success',
 			data: {
-				building
-			}
+				building,
+			},
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
@@ -92,16 +93,20 @@ exports.updateBuilding = async (req, res) => {
 // Delete a document by id
 exports.deleteBuilding = async (req, res) => {
 	try {
+		// Remove all the rooms of the building
+		await Room.deleteMany({ building: req.params.id });
+
+		// Deleting the building
 		await Building.findByIdAndDelete(req.params.id);
 
 		res.status(204).json({
 			status: 'success',
-			data: null
+			data: null,
 		});
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',
-			message: err.message
+			message: err.message,
 		});
 	}
 };
