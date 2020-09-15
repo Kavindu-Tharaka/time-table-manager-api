@@ -23,6 +23,9 @@ const subjectRoutes = require('./routes/subjectRoutes');
 const constraintslecturerRoutes = require('./routes/constraintslecturerRoutes');
 const constraintsgroupRoutes = require('./routes/constraintsgroupRoutes');
 const constraintssubgroupRoutes = require('./routes/constraintssubgroupRoutes');
+const constraintssessionRoutes = require('./routes/constraintssessionRoutes');
+
+const tempsessionRoutes = require('./routes/tempsessionRoutes');
 
 // Creating a Express application
 const app = express();
@@ -55,6 +58,9 @@ app.use(`${resourcePrefix}/subjects`,subjectRoutes);
 app.use(`${resourcePrefix}/constraintslecturers`,constraintslecturerRoutes);
 app.use(`${resourcePrefix}/constraintsgroups`,constraintsgroupRoutes);
 app.use(`${resourcePrefix}/constraintssubgroups`,constraintssubgroupRoutes);
+app.use(`${resourcePrefix}/constraintssessions`,constraintssessionRoutes);
+
+app.use(`${resourcePrefix}/tempsessions`,tempsessionRoutes);
 
 // Setting static webpage
 app.use(express.static('./client'));
