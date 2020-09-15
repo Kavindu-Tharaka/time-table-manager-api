@@ -12,6 +12,11 @@ const subgroupidSchema = new mongoose.Schema({
     trim: true,
     required: [true, "Sub Group Number is Mandatory!"],
   },
+  subgroupid: {
+    type: String,
+    trim: true,
+    required: [true, "Sub Group ID is Mandatory!"],
+  },
   date: {
     type: Date,
     default: Date.now(),

@@ -2,6 +2,7 @@ const ConstraintsLecturer = require('../models/ConstraintsLecturer');
 
 exports.createConstraintsLecturer = async (req, res) => {
     try {
+
         const newConstraintsLecturer = await ConstraintsLecturer.create(req.body);
 
         res.status(201).json({
@@ -11,6 +12,7 @@ exports.createConstraintsLecturer = async (req, res) => {
             },
         });
     } catch (err) {
+        console.log(err)
         res.status(400).json({
             status: 'failed',
             message: err.message,
