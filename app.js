@@ -19,6 +19,8 @@ const roomRoutes = require('./routes/roomRoutes');
 const workingDaysRoutes = require('./routes/workingDaysRoute');
 const lecturerRoutes = require('./routes/lecturerRoute');
 const subjectRoutes = require('./routes/subjectRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
+
 
 // Creating a Express application
 const app = express();
@@ -47,6 +49,7 @@ app.use(`${resourcePrefix}/rooms`, roomRoutes);
 app.use(`${resourcePrefix}/workingDays`, workingDaysRoutes);
 app.use(`${resourcePrefix}/lecturers`,lecturerRoutes);
 app.use(`${resourcePrefix}/subjects`,subjectRoutes);
+app.use(`${resourcePrefix}/subjects`,sessionRoutes);
 
 // Setting static webpage
 app.use(express.static('./client'));
