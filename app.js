@@ -24,6 +24,9 @@ const constraintslecturerRoutes = require('./routes/constraintslecturerRoutes');
 const constraintsgroupRoutes = require('./routes/constraintsgroupRoutes');
 const constraintssubgroupRoutes = require('./routes/constraintssubgroupRoutes');
 const constraintssessionRoutes = require('./routes/constraintssessionRoutes');
+const constraintsconsecutivesessionRoutes = require('./routes/constraintsconsecutivesessionRoutes');
+const constraintsparallelsessionRoutes = require('./routes/constraintsparallelsessionRoutes');
+const constraintsunoverlapsessionRoutes = require('./routes/constraintsunoverlapsessionRoutes');
 
 const tempsessionRoutes = require('./routes/tempsessionRoutes');
 
@@ -59,6 +62,9 @@ app.use(`${resourcePrefix}/constraintslecturers`,constraintslecturerRoutes);
 app.use(`${resourcePrefix}/constraintsgroups`,constraintsgroupRoutes);
 app.use(`${resourcePrefix}/constraintssubgroups`,constraintssubgroupRoutes);
 app.use(`${resourcePrefix}/constraintssessions`,constraintssessionRoutes);
+app.use(`${resourcePrefix}/constraintsconsecutivesessions`,constraintsconsecutivesessionRoutes);
+app.use(`${resourcePrefix}/constraintsparallelsessions`,constraintsparallelsessionRoutes);
+app.use(`${resourcePrefix}/constraintsunoverlapsessions`,constraintsunoverlapsessionRoutes);
 
 app.use(`${resourcePrefix}/tempsessions`,tempsessionRoutes);
 

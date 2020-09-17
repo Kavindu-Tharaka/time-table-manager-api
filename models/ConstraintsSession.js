@@ -1,13 +1,13 @@
 
 const mongoose = require("mongoose");
-const TempSession = require('./TempSession');
+const Session = require('./TempSession');
 
 const Schema = mongoose.Schema;
 
 const ConstraintsSessionSchema = new Schema({
     session: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: TempSession,
+        ref: Session,
         required: [true, 'Session ID is Mandatory!'],
     },
     day: {
