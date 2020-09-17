@@ -14,4 +14,9 @@ router
 	.patch(constraintslecturerController.updateConstraintsLecturer)
 	.delete(constraintslecturerController.deleteConstraintsLecturer);
 
+router
+	.route('/lecturer/:id')
+	.get(constraintslecturerController.getConstraintsOfOneLecturer)
+
+
 module.exports = router;

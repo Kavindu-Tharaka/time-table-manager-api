@@ -14,4 +14,8 @@ router
 	.patch(constraintssessionController.updateConstraintsSession)
 	.delete(constraintssessionController.deleteConstraintsSession);
 
+router
+	.route('/session/:id')
+	.get(constraintssessionController.getConstraintsOfOneSession)
+
 module.exports = router;

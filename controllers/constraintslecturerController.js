@@ -95,3 +95,21 @@ exports.deleteConstraintsLecturer = async (req, res) => {
         });
     }
 };
+
+exports.getConstraintsOfOneLecturer = async (req, res) => {
+    try {
+        const constraintsLecturer = await ConstraintsLecturer.find({lecturer: req.params.id});
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                constraintsLecturer,
+            },
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'failed',
+            message: err.message,
+        });
+    }
+};

@@ -93,3 +93,21 @@ exports.deleteConstraintsGroup = async (req, res) => {
         });
     }
 };
+
+exports.getConstraintsOfOneGroup = async (req, res) => {
+    try {
+        const constraintsGroup = await ConstraintsGroup.find({group: req.params.id});
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                constraintsGroup,
+            },
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'failed',
+            message: err.message,
+        });
+    }
+};

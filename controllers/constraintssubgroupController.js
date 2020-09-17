@@ -93,3 +93,21 @@ exports.deleteConstraintsSubGroup = async (req, res) => {
         });
     }
 };
+
+exports.getConstraintsOfOneSubGroup = async (req, res) => {
+    try {
+        const constraintsSubGroup = await ConstraintsSubGroup.find({subgroup: req.params.id});
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                constraintsSubGroup,
+            },
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'failed',
+            message: err.message,
+        });
+    }
+};

@@ -93,3 +93,21 @@ exports.deleteConstraintsSession = async (req, res) => {
         });
     }
 };
+
+exports.getConstraintsOfOneSession = async (req, res) => {
+    try {
+        const constraintsSession = await ConstraintsSession.find({session: req.params.id});
+
+        res.status(200).json({
+            status: 'success',
+            data: {
+                constraintsSession,
+            },
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'failed',
+            message: err.message,
+        });
+    }
+};

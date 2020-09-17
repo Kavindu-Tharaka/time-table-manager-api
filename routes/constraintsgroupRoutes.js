@@ -14,4 +14,8 @@ router
 	.patch(constraintsgroupController.updateConstraintsGroup)
 	.delete(constraintsgroupController.deleteConstraintsGroup);
 
+router
+	.route('/group/:id')
+	.get(constraintsgroupController.getConstraintsOfOneGroup)
+
 module.exports = router;
