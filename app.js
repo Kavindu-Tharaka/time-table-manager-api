@@ -49,7 +49,7 @@ app.use(`${resourcePrefix}/rooms`, roomRoutes);
 app.use(`${resourcePrefix}/workingDays`, workingDaysRoutes);
 app.use(`${resourcePrefix}/lecturers`,lecturerRoutes);
 app.use(`${resourcePrefix}/subjects`,subjectRoutes);
-app.use(`${resourcePrefix}/subjects`,sessionRoutes);
+app.use(`${resourcePrefix}/session`,sessionRoutes);
 
 // Setting static webpage
 app.use(express.static('./client'));

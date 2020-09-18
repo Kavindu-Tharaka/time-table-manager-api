@@ -5,7 +5,7 @@ exports.createSession = async (req, res) => {
     try {
         const newSession = await Session.create(req.body);
 
-        res.status(201).json({
+        res.status(200).json({
             status: 'success',
             data: {
                 session: newSession,

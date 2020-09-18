@@ -13,18 +13,18 @@ const sessionSchema = new mongoose.Schema({
     },
     studentGroup:{
         type:String,
-        trim:true,
+        // trim:true,
         required:[true,'student group is mandotory for session!']
     },
     subject:{
         type:String,
         trim:true,
-        required:[true,'subject id mandotory for session!']
+        required:[true,'subject is mandotory for session!']
     },
     numberOfStudents:{
-        type:String,
-        required:[true,'number of student is madotory for session!'],
-        trim:true
+        type:Number,
+        // trim:true,
+        required:[true,'number of student is madotory for session!']
     },
     duration:{
         type:Number,
@@ -34,7 +34,7 @@ const sessionSchema = new mongoose.Schema({
     asString:{
         type: String,
         trim:true,
-        required:[true,'add string values for kawidu!'],
+        required:[true,'add string values'],
     }
 });
 
