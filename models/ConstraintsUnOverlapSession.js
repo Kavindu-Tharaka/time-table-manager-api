@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Session = require('./TempSession');
+const Session = require('./Sessions');
 
 const Schema = mongoose.Schema;
 

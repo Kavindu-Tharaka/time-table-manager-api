@@ -20,7 +20,7 @@ exports.createConstraintsConsecutiveSession = async (req, res) => {
 
 exports.getAllConstraintsConsecutiveSessions = async (req, res) => {
     try {
-        const query = ConstraintsConsecutiveSession.find(req.query).populate('consecutivesession');
+        const query = ConstraintsConsecutiveSession.find(req.query).populate('consecutivesessions subject');
 
         const constraintsConsecutiveSessions = await query;
 
@@ -41,7 +41,7 @@ exports.getAllConstraintsConsecutiveSessions = async (req, res) => {
 
 exports.getConstraintsConsecutiveSession = async (req, res) => {
     try {
-        const constraintsConsecutiveSession = await ConstraintsConsecutiveSession.findById(req.params.id).populate('consecutivesession');
+        const constraintsConsecutiveSession = await ConstraintsConsecutiveSession.findById(req.params.id).populate('consecutivesessions subject');
 
         res.status(200).json({
             status: 'success',
