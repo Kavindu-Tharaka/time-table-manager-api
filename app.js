@@ -19,6 +19,8 @@ const roomRoutes = require('./routes/roomRoutes');
 const workingDaysRoutes = require('./routes/workingDaysRoute');
 const lecturerRoutes = require('./routes/lecturerRoute');
 const subjectRoutes = require('./routes/subjectRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
+
 
 const constraintslecturerRoutes = require('./routes/constraintslecturerRoutes');
 const constraintsgroupRoutes = require('./routes/constraintsgroupRoutes');
@@ -57,6 +59,7 @@ app.use(`${resourcePrefix}/rooms`, roomRoutes);
 app.use(`${resourcePrefix}/workingDays`, workingDaysRoutes);
 app.use(`${resourcePrefix}/lecturers`,lecturerRoutes);
 app.use(`${resourcePrefix}/subjects`,subjectRoutes);
+app.use(`${resourcePrefix}/session`,sessionRoutes);
 
 app.use(`${resourcePrefix}/constraintslecturers`,constraintslecturerRoutes);
 app.use(`${resourcePrefix}/constraintsgroups`,constraintsgroupRoutes);
