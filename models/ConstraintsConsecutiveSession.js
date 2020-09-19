@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Subject = require('./Subject');
-const Session = require('./TempSession');
+const Session = require('./Sessions');
 
 const Schema = mongoose.Schema;
 
