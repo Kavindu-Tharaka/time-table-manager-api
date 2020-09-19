@@ -17,6 +17,11 @@ const groupidSchema = new mongoose.Schema({
     trim: true,
     required: [true, "GroupNumber is Mandatory!"],
   },
+  groupid: {
+    type: String,
+    trim: true,
+    required: [true, "Group ID is Mandatory!"],
+  },
   date: {
     type: Date,
     default: Date.now(),
