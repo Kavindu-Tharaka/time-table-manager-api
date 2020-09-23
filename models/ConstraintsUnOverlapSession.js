@@ -9,13 +9,11 @@ const ConstraintsUnOverlapSessionSchema = new Schema({
         type: Number,
         min: 1,
         max: 4,
-        required: [true, 'Year is Mandatory!']
     },
     semester: {
         type: Number,
         min: 1,
         max: 2,
-        required: [true, 'Semester is Mandatory!']
     },
     unoverlapsessions: [{
         type: Schema.Types.ObjectId,
