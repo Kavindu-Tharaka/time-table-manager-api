@@ -10,18 +10,15 @@ const ConstraintsConsecutiveSessionSchema = new Schema({
         type: Number,
         min: 1,
         max: 4,
-        required: [true, 'Year is Mandatory!']
     },
     semester: {
         type: Number,
         min: 1,
         max: 2,
-        required: [true, 'Semester is Mandatory!']
     },
     subject: {
         type: Schema.Types.ObjectId,
         ref: Subject,
-        required: [true, 'Subject is Mandatory!']
     },
     consecutivesessions: [{
         type: Schema.Types.ObjectId,
