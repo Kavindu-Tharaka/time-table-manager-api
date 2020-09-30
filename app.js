@@ -32,6 +32,9 @@ const constraintsunoverlapsessionRoutes = require('./routes/constraintsunoverlap
 
 const tempsessionRoutes = require('./routes/tempsessionRoutes');
 
+
+const timeTableRoute = require('./routes/timeTableGeneratorRoute');
+
 // Creating a Express application
 const app = express();
 
@@ -70,6 +73,12 @@ app.use(`${resourcePrefix}/constraintsparallelsessions`,constraintsparallelsessi
 app.use(`${resourcePrefix}/constraintsunoverlapsessions`,constraintsunoverlapsessionRoutes);
 
 app.use(`${resourcePrefix}/tempsessions`,tempsessionRoutes);
+
+
+
+//routes neccessary for time table generations
+app.use(`${resourcePrefix}/timetable`,timeTableRoute);
+
 
 // Setting static webpage
 app.use(express.static('./client'));
