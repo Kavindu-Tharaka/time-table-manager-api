@@ -20,7 +20,7 @@ exports.createConstraintsUnOverlapSession = async (req, res) => {
 
 exports.getAllConstraintsUnOverlapSessions = async (req, res) => {
     try {
-        const query = ConstraintsUnOverlapSession.find(req.query).populate('unoverlapsession');
+        const query = ConstraintsUnOverlapSession.find(req.query).populate('unoverlapsessions');
 
         const constraintsUnOverlapSessions = await query;
 
@@ -41,7 +41,7 @@ exports.getAllConstraintsUnOverlapSessions = async (req, res) => {
 
 exports.getConstraintsUnOverlapSession = async (req, res) => {
     try {
-        const constraintsUnOverlapSession = await ConstraintsUnOverlapSession.findById(req.params.id).populate('unoverlapsession');
+        const constraintsUnOverlapSession = await ConstraintsUnOverlapSession.findById(req.params.id).populate('unoverlapsessions');
 
         res.status(200).json({
             status: 'success',

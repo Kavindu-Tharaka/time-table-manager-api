@@ -20,7 +20,7 @@ exports.createConstraintsParallelSession = async (req, res) => {
 
 exports.getAllConstraintsParallelSessions = async (req, res) => {
     try {
-        const query = ConstraintsParallelSession.find(req.query).populate('parallelsession');
+        const query = ConstraintsParallelSession.find(req.query).populate('parallelsessions');
 
         const constraintsParallelSessions = await query;
 
@@ -41,7 +41,7 @@ exports.getAllConstraintsParallelSessions = async (req, res) => {
 
 exports.getConstraintsParallelSession = async (req, res) => {
     try {
-        const constraintsParallelSession = await ConstraintsParallelSession.findById(req.params.id).populate('parallelsession');
+        const constraintsParallelSession = await ConstraintsParallelSession.findById(req.params.id).populate('parallelsessions');
 
         res.status(200).json({
             status: 'success',

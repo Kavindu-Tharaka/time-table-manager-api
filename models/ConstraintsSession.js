@@ -1,10 +1,18 @@
 
 const mongoose = require("mongoose");
-const Session = require('./TempSession');
+const Session = require('./Sessions');
 
 const Schema = mongoose.Schema;
 
 const ConstraintsSessionSchema = new Schema({
+    year: {
+        type: Number,
+        trim: true,
+    },
+    semester: {
+        type: Number,
+        trim: true,
+    },
     session: {
         type: mongoose.Schema.Types.ObjectId,
         ref: Session,
