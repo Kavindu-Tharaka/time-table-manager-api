@@ -4,5 +4,8 @@ const TimeTableGeneratorController = require("../controllers/timeTableGeneratorC
 const router = express.Router();
 
 router.route("/").post(TimeTableGeneratorController.getSession);
+router.route("/generate").post(TimeTableGeneratorController.generateTimeTable)
+router.route("/lecturer").post(TimeTableGeneratorController.getLecturer)
+
 
 module.exports = router;
