@@ -3,7 +3,12 @@ const Room = require('../models/Room');
 // Creating a new room in the database
 exports.createRoom = async (req, res) => {
 	try {
-		const newRoom = await Room.create(req.body);
+		const createdRoom = await Room.create(req.body);
+
+		const query = Room.findById(createdRoom._id)
+			.populate('building')
+			.populate('assignedTags');
+		const newRoom = await query;
 
 		res.status(201).json({
 			status: 'success',
@@ -22,24 +27,16 @@ exports.createRoom = async (req, res) => {
 // Read all the document in room collection
 exports.getAllRooms = async (req, res) => {
 	try {
-		Room.aggregate([
-			{
-				$lookup: {
-					from: 'buildings',
-					localField: 'building',
-					foreignField: '_id',
-					as: 'buildingObj',
-				},
+		const query = Room.find().populate('building').populate('assignedTags');
+		const rooms = await query;
+
+		// Send response
+		res.status(200).json({
+			status: 'success',
+			results: rooms.length,
+			data: {
+				rooms,
 			},
-		]).exec((err, rooms) => {
-			// Send response
-			res.status(200).json({
-				status: 'success',
-				results: rooms.length,
-				data: {
-					rooms,
-				},
-			});
 		});
 	} catch (err) {
 		res.status(400).json({
@@ -55,7 +52,10 @@ exports.getAllRooms = async (req, res) => {
  */
 exports.getRoom = async (req, res) => {
 	try {
-		const room = await Room.findById(req.params.id);
+		const query = Room.findById(req.params.id)
+			.populate('building')
+			.populate('assignedTags');
+		const room = await query;
 
 		res.status(200).json({
 			status: 'success',
@@ -74,10 +74,19 @@ exports.getRoom = async (req, res) => {
 // Update a document by given id. This only for patch method
 exports.updateRoom = async (req, res) => {
 	try {
-		const room = await Room.findByIdAndUpdate(req.params.id, req.body, {
-			new: true,
-			runValidators: true,
-		});
+		const updatedRoom = await Room.findByIdAndUpdate(
+			req.params.id,
+			req.body,
+			{
+				new: true,
+				runValidators: true,
+			}
+		);
+
+		const query = Room.findById(updatedRoom._id)
+			.populate('building')
+			.populate('assignedTags');
+		const room = await query;
 
 		res.status(200).json({
 			status: 'success',

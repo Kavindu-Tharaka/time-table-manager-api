@@ -7,5 +7,5 @@ const buildingSchema = new mongoose.Schema({
     }
 });
 
-const Building = mongoose.model('buildings', buildingSchema);
+const Building = mongoose.model('building', buildingSchema);
 module.exports = Building;
