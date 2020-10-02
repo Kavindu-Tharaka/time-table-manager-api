@@ -44,7 +44,7 @@ const roomSchema = new mongoose.Schema({
 	assignedGroups: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
-			ref: 'groupid',
+			ref: 'subgroupid',
 		},
 	],
 	assignForSessions: [

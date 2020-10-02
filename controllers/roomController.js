@@ -7,7 +7,12 @@ exports.createRoom = async (req, res) => {
 
 		const query = Room.findById(createdRoom._id)
 			.populate('building')
-			.populate('assignedTags');
+			.populate('assignedTags')
+			.populate('assignedSubjects')
+			.populate('assignedLecturers')
+			.populate('assignedGroups')
+			.populate('assignForSessions')
+			.populate('assignForConsecutive');
 		const newRoom = await query;
 
 		res.status(201).json({
@@ -27,7 +32,14 @@ exports.createRoom = async (req, res) => {
 // Read all the document in room collection
 exports.getAllRooms = async (req, res) => {
 	try {
-		const query = Room.find().populate('building').populate('assignedTags');
+		const query = Room.find()
+			.populate('building')
+			.populate('assignedTags')
+			.populate('assignedSubjects')
+			.populate('assignedLecturers')
+			.populate('assignedGroups')
+			.populate('assignForSessions')
+			.populate('assignForConsecutive');
 		const rooms = await query;
 
 		// Send response
@@ -54,7 +66,12 @@ exports.getRoom = async (req, res) => {
 	try {
 		const query = Room.findById(req.params.id)
 			.populate('building')
-			.populate('assignedTags');
+			.populate('assignedTags')
+			.populate('assignedSubjects')
+			.populate('assignedLecturers')
+			.populate('assignedGroups')
+			.populate('assignForSessions')
+			.populate('assignForConsecutive');
 		const room = await query;
 
 		res.status(200).json({
@@ -85,7 +102,12 @@ exports.updateRoom = async (req, res) => {
 
 		const query = Room.findById(updatedRoom._id)
 			.populate('building')
-			.populate('assignedTags');
+			.populate('assignedTags')
+			.populate('assignedSubjects')
+			.populate('assignedLecturers')
+			.populate('assignedGroups')
+			.populate('assignForSessions')
+			.populate('assignForConsecutive');
 		const room = await query;
 
 		res.status(200).json({
